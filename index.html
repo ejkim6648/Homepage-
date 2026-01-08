@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eun Ji Kim - Sociologist</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Crimson+Pro:wght@300;400;600&family=Work+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #fdfcfa;
+            --bg-secondary: #f5f3ef;
+            --text-primary: #1a1816;
+            --text-secondary: #4a4745;
+            --accent: #8b7355;
+            --border: #e0ddd8;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Work Sans', sans-serif;
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.7;
+            font-size: 16px;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 40px;
+        }
+
+        /* Header Section */
+        header {
+            padding: 120px 0 80px;
+            border-bottom: 1px solid var(--border);
+            position: relative;
+            overflow: hidden;
+        }
+
+        header::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            right: -20%;
+            width: 600px;
+            height: 600px;
+            background: radial-gradient(circle, rgba(139, 115, 85, 0.03) 0%, transparent 70%);
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translate(0, 0) rotate(0deg); }
+            50% { transform: translate(-30px, 30px) rotate(5deg); }
+        }
+
+        h1 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 52px;
+            font-weight: 300;
+            letter-spacing: -1px;
+            margin-bottom: 12px;
+            opacity: 0;
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+        }
+
+        .subtitle {
+            font-size: 15px;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--accent);
+            font-weight: 400;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.2s forwards;
+        }
+
+        /* Navigation */
+        nav {
+            margin-top: 60px;
+            padding: 30px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(253, 252, 250, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.4s forwards;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            gap: 40px;
+            justify-content: center;
+        }
+
+        nav a {
+            color: var(--text-secondary);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 1px;
+            background: var(--accent);
+            transition: width 0.3s ease;
+        }
+
+        nav a:hover {
+            color: var(--accent);
+        }
+
+        nav a:hover::after {
+            width: 100%;
+        }
+
+        /* Intro Section */
+        .intro {
+            padding: 100px 0;
+            opacity: 0;
+            animation: fadeInUp 1s ease 0.6s forwards;
+        }
+
+        .intro-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+
+        .intro-text h2 {
+            font-family: 'Crimson Pro', serif;
+            font-size: 28px;
+            font-weight: 400;
+            margin-bottom: 30px;
+            color: var(--text-primary);
+        }
+
+        .intro-text p {
+            margin-bottom: 24px;
+            color: var(--text-secondary);
+            font-size: 16px;
+            line-height: 1.8;
+        }
+
+        .cv-links {
+            margin-top: 40px;
+            padding-top: 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .cv-links a {
+            display: inline-block;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 14px;
+            letter-spacing: 1px;
+            margin-right: 30px;
+            transition: all 0.3s ease;
+            position: relative;
+            padding-bottom: 2px;
+        }
+
+        .cv-links a::after {
+            content: '→';
+            margin-left: 8px;
+            transition: margin-left 0.3s ease;
+        }
+
+        .cv-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .cv-links a:hover::after {
+            margin-left: 12px;
+        }
+
+        /* Section Styling */
+        section {
+            padding: 100px 0;
+            border-bottom: 1px solid var(--border);
+        }
+
+        section:last-of-type {
+            border-bottom: none;
+        }
+
+        .section-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 36px;
+            font-weight: 400;
+            margin-bottom: 60px;
+            letter-spacing: -0.5px;
+            position: relative;
+            display: inline-block;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 60px;
+            height: 2px;
+            background: var(--accent);
+        }
+
+        /* Publication Item */
+        .publication-item {
+            margin-bottom: 50px;
+            padding: 40px;
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent);
+            transition: all 0.3s ease;
+        }
+
+        .publication-item:hover {
+            background: #f0ede8;
+            transform: translateX(5px);
+        }
+
+        .pub-year {
+            font-size: 13px;
+            color: var(--accent);
+            letter-spacing: 1px;
+            font-weight: 500;
+            margin-bottom: 8px;
+        }
+
+        .pub-title {
+            font-family: 'Crimson Pro', serif;
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: 12px;
+            line-height: 1.5;
+        }
+
+        .pub-venue {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 15px;
+            margin-bottom: 8px;
+        }
+
+        .pub-note {
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Experience Item */
+        .experience-item {
+            display: grid;
+            grid-template-columns: 150px 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            padding-bottom: 40px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+
+        .exp-year {
+            font-family: 'Crimson Pro', serif;
+            font-size: 18px;
+            color: var(--accent);
+            font-weight: 500;
+        }
+
+        .exp-details h3 {
+            font-size: 18px;
+            font-weight: 500;
+            margin-bottom: 6px;
+        }
+
+        .exp-details p {
+            color: var(--text-secondary);
+            font-size: 15px;
+        }
+
+        /* Footer */
+        footer {
+            padding: 80px 0 60px;
+            text-align: center;
+            color: var(--text-secondary);
+            font-size: 14px;
+        }
+
+        /* Scroll Reveal */
+        .reveal {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.8s ease;
+        }
+
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                padding: 0 24px;
+            }
+
+            h1 {
+                font-size: 36px;
+            }
+
+            .intro-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            nav ul {
+                flex-wrap: wrap;
+                gap: 20px;
+            }
+
+            .experience-item {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .section-title {
+                font-size: 28px;
+            }
+
+            header {
+                padding: 80px 0 60px;
+            }
+
+            section {
+                padding: 60px 0;
+            }
+        }
+
+        /* Decorative Elements */
+        .deco-dot {
+            width: 4px;
+            height: 4px;
+            background: var(--accent);
+            border-radius: 50%;
+            display: inline-block;
+            margin: 0 8px;
+            opacity: 0.4;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Eun Ji Kim</h1>
+            <p class="subtitle">Sociology Ph.D Candidate</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#intro">About</a></li>
+                <li><a href="#dissertation">Dissertation</a></li>
+                <li><a href="#publications">Publications</a></li>
+                <li><a href="#experience">Experience</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <section id="intro" class="intro">
+            <div class="container">
+                <div class="intro-content">
+                    <div class="intro-text">
+                        <p>I am a PhD candidate in Sociology at the University of Wisconsin-Madison. My research examines the mutually constitutive relationship between technological development and socio-political relations, with particular focus on algorithmic governance and artificial intelligence.</p>
+                        <p>My dissertation addresses how technological change shapes socio-political relations by examining algorithmic governance in the platform economy. Drawing on computational text analysis and interviews with platform network participants—including YouTube creators, food delivery workers, and freelancers—I analyze how algorithmic systems reshape understandings of rule, rationality, and workplace politics across different platform contexts.</p>
+                        <p>My other articles are published in Korean Labor Studies and Culture and Society in Korean.</p>
+                    </div>
+                    <div class="intro-text">
+                        <p>저는 서울대학교 사회학과에서 학사와 석사를 마치고, 현재 University of Wisconsin-Madison 사회학과 박사과정에 재학 중입니다. 알고리즘 거버넌스와 인공지능을 중심으로 기술 발전과 사회정치적 관계의 상호작용을 연구하고 있습니다.</p>
+                        <p>박사 학위논문에서는 플랫폼 경제의 알고리즘 거버넌스가 일의 의미와 사회적 관계를 어떻게 변화시키는지 다룹니다. YouTube 크리에이터, 배달 노동자, 프리랜서 등 플랫폼 참여자들과의 인터뷰와 온라인 텍스트 분석을 통해, 알고리즘이 규칙, 합리성, 거버넌스에 대한 이해를 어떻게 재구성하는지 분석합니다.</p>
+                        <p>기타 저의 글들은 산업노동연구 및 문화와 사회에 출간된 바 있습니다.</p>
+                    </div>
+                </div>
+                <div class="cv-links">
+                    <a href="https://docs.google.com/document/d/e/2PACX-1vTviTymiZ7ixwZFtWpiGatsCGj3UQLzj7NKvk9WW-ScZyQrxFrlJZngzXIvmjBD7LYyo_QOdvWNmRud/pub" target="_blank">CV (English)</a>
+                    <a href="https://docs.google.com/document/d/e/2PACX-1vTPT38LxsjSZnU9Hg4Is6eiEHsJ2EB6uoSEW1RA5w1TQlp872-DQxFpelRu6Qlaltj684MjyuWl71k7/pub" target="_blank">이력서 (한국어)</a>
+                    <a href="https://sociology.wisc.edu/staff/kim-eun-ji/" target="_blank">Department Homepage Profile</a>
+                </div>
+            </div>
+        </section>
+
+        <section id="dissertation" class="reveal">
+            <div class="container">
+                <h2 class="section-title">Dissertation</h2>
+                <div class="publication-item">
+                    <div class="pub-year">In Progress</div>
+                    <div class="pub-title">Algorithmic Governance in the Platform Economy: Reshaping Work and Social Relations</div>
+                    <p style="color: var(--text-secondary); margin-top: 20px; line-height: 1.8;">
+                        My dissertation examines how technological change shapes socio-political relations through the lens of algorithmic governance in the platform economy. Using computational text analysis and in-depth interviews with YouTube creators, food delivery workers, and freelancers, I analyze how algorithmic systems fundamentally reshape understandings of rule, rationality, and workplace politics across diverse platform contexts. This research contributes to our understanding of the mutually constitutive relationship between technological development and social transformation.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="reveal">
+            <div class="container">
+                <h2 class="section-title">Articles & Publications</h2>
+                
+                <div class="publication-item">
+                    <div class="pub-year">2022</div>
+                    <div class="pub-title">Book Review: Toward More Encompassing Narratives of Precarious Work – Precarious Asia: Global Capitalism and Work in Japan, South Korea and Indonesia</div>
+                    <div class="pub-venue">Korean Labor Studies, 28(3), pp. 235–243</div>
+                    <div class="pub-note">(Arne L. Kalleberg, Kevin Hewison, and Kwang-Yeong Shin, 2021, Stanford University Press) <span class="deco-dot"></span> In Korean</div>
+                </div>
+
+                <div class="publication-item">
+                    <div class="pub-year">2018</div>
+                    <div class="pub-title">Social Innovation, the Emergence of Social Movement that 'Fabricates' Change</div>
+                    <div class="pub-venue">Culture & Society, 26(2), pp. 379–429</div>
+                    <div class="pub-note">In Korean</div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="reveal">
+            <div class="container">
+                <h2 class="section-title">Teaching & Work Experience</h2>
+                
+                <h3 style="font-family: 'Crimson Pro', serif; font-size: 24px; margin-bottom: 40px; color: var(--accent); font-weight: 400;">Teaching</h3>
+                
+                <div class="experience-item">
+                    <div class="exp-year">2025</div>
+                    <div class="exp-details">
+                        <h3>Teaching Assistant, Statistics I</h3>
+                        <p>University of Wisconsin-Madison</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-year">2022–2023</div>
+                    <div class="exp-details">
+                        <h3>Teaching Assistant, Sociology of Race and Ethnicity</h3>
+                        <p>University of Wisconsin-Madison</p>
+                    </div>
+                </div>
+
+                <h3 style="font-family: 'Crimson Pro', serif; font-size: 24px; margin: 80px 0 40px; color: var(--accent); font-weight: 400;">Work Experience</h3>
+
+                <div class="experience-item">
+                    <div class="exp-year">2019–2021</div>
+                    <div class="exp-details">
+                        <h3>Researcher</h3>
+                        <p>The Future Institute</p>
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="exp-year">2016–2018</div>
+                    <div class="exp-details">
+                        <h3>Research Assistant</h3>
+                        <p>Seoul National University</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>© 2025 Eun Ji Kim <span class="deco-dot"></span> PhD Candidate in Sociology</p>
+            <p style="margin-top: 12px; opacity: 0.7;">University of Wisconsin-Madison</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scroll
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const reveals = document.querySelectorAll('.reveal');
+        
+        const revealOnScroll = () => {
+            const windowHeight = window.innerHeight;
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const revealPoint = 100;
+                
+                if (elementTop < windowHeight - revealPoint) {
+                    element.classList.add('active');
+                }
+            });
+        };
+
+        window.addEventListener('scroll', revealOnScroll);
+        revealOnScroll();
+    </script>
+</body>
+</html>
